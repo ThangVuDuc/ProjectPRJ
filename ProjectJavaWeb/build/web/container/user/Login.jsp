@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-black">Password:</label><br>
-                            <input type="password" name="password" id="password" class="form-control" autocomplete="off" required="required">
+                            <input type="text" name="password" id="password" class="form-control" autocomplete="off" required="required">
                         </div>
                         <div class="form-group">
                             <input style="width: 100%" type="submit" name="signin" class="btn btn-info btn-md" value="Sign In">

@@ -12,7 +12,7 @@ import java.util.Date;
  * @author ASUS
  */
 public class Users {
-    private int userId;
+    private int userID;
     private String username;
     private String password;
     private String email;
@@ -23,8 +23,8 @@ public class Users {
     public Users() {
     }
 
-    public Users(int userId, String username, String password, String email, String name, String avatarUrl, int role) {
-        this.userId = userId;
+    public Users(int userID, String username, String password, String email, String name, String avatarUrl, int role) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.email = email;
@@ -33,6 +33,7 @@ public class Users {
         this.role = role;
     }
 
+   
     
     
     public Users(String username, String password, String email, String name, String avatarUrl, int role) {
@@ -43,10 +44,7 @@ public class Users {
         this.avatarUrl = avatarUrl;
         this.role = role;
     }
-    
-    public int getUserId() {
-        return userId;
-    }
+
     public String getPassword() {
         return password;
     }
@@ -97,6 +95,12 @@ public class Users {
         this.role = role;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
+    
+   
     
     
     

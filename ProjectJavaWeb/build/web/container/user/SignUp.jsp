@@ -20,7 +20,7 @@
                 <div class="row d-flex justify-content-center" style="margin-top: 5px">
                     <div class='col-3 '>
                         <div class='navbar-brand ' href='#' >
-                            <a href="${pageContext.request.contextPath}/container/user/Home.jsp">
+                            <a href="${pageContext.request.contextPath}/container/Home.jsp">
                                 <span><img src="${pageContext.request.contextPath}/public/images/logo.png" class='img-logo' alt='logo' /></span>
                             </a>
                         </div> 
@@ -41,11 +41,11 @@
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-black">Password:</label><br>
-                            <input type="password" name="password"  class="form-control" required="required">
+                            <input type="password" name="password" id="password" class="form-control" required="required">
                         </div>
                         <div class="form-group">
                             <label for="name" class="text-black">Name:</label><br>
-                            <input type="text" name="name"  class="form-control" required="required">
+                            <input type="text" name="name" id="password" class="form-control" required="required">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
