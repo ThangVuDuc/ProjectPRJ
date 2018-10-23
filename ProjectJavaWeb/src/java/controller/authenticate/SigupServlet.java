@@ -19,13 +19,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-import utils.UploadImages;
 
 /**
  *
  * @author ASUS
  */
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2 /* 2MB*/)
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 50, // 50MB
+        maxRequestSize = 1024 * 1024 * 50,// 50MB
+        location = "C:\\Users\\Admin.10.12\\Downloads\\ProjectJavaWeb\\web\\public\\images")
 public class SigupServlet extends HttpServlet {
 
     /**
@@ -71,34 +73,26 @@ public class SigupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        String username = request.getParameter("username");
-        UserDAO userdao = new UserDAO();
 
+        HttpSession session = request.getSession();
+        String fileName = null;
+        String username = request.getParameter("username").trim();
+        UserDAO userdao = new UserDAO();
+        
         //check loi up anh
-//        try {
-//            Part part = request.getPart("avatarUrl");
-//            fileName = username+"."+extractFileName(part);
-//            if (fileName != null && fileName.length() > 0) {
-//                System.out.println("filename " + fileName);
-//                System.out.println("part " + part);
-//                part.write(fileName);
-//                
-//                
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println("Error");
-//            return;
-//        }
-        String fileName=null;
         try {
-            fileName = UploadImages.getNewNameAndStore(request, request.getServletContext().getInitParameter("IMAGE_STORAGE_LOCATION"), username);
+            Part part = request.getPart("avatarUrl");
+            fileName = username+"."+extractFileName(part);
+            if (fileName != null && fileName.length() > 0) {
+                System.out.println("filename " + fileName);
+                System.out.println("part " + part);
+                part.write(fileName);
+                
+                
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            response.getWriter().print(e.getMessage());
-            return;
+            System.out.println("Error");
         }
 
         String password = request.getParameter("password").trim();
@@ -111,8 +105,9 @@ public class SigupServlet extends HttpServlet {
             System.out.println("ko la admin");
         }
         Users user = new Users(username, password, email, name, fileName, role);
-
+        
         //check loi trung username
+        
         if (userdao.insert(user) != -1) {
             session.removeAttribute("error");
             session.setAttribute("user", user);
@@ -124,27 +119,25 @@ public class SigupServlet extends HttpServlet {
 
         //
     }
-
-    private String extractFileName(Part part) {
-        // form-data; name="file"; filename="C:\file1.zip"
-        // form-data; name="file"; filename="C:\Note\file2.zip"
-        String contentDisp = part.getHeader("content-disposition");
-        String[] items = contentDisp.split(";");
-        for (String s : items) {
-            if (s.trim().startsWith("filename")) {
-                // C:\file1.zip
-                // C:\Note\file2.zip
-                String clientFileName = s.substring(s.indexOf("=") + 2, s.length() - 1);
+     private String extractFileName(Part part) {
+       // form-data; name="file"; filename="C:\file1.zip"
+       // form-data; name="file"; filename="C:\Note\file2.zip"
+       String contentDisp = part.getHeader("content-disposition");
+       String[] items = contentDisp.split(";");
+       for (String s : items) {
+           if (s.trim().startsWith("filename")) {
+               // C:\file1.zip
+               // C:\Note\file2.zip
+               String clientFileName = s.substring(s.indexOf("=") + 2, s.length() - 1);
 //               clientFileName = clientFileName.replace("\\", "/");
-                int i = clientFileName.lastIndexOf('.');
-                // file1.zip
-                // file2.zip
-                return clientFileName.substring(i + 1);
-            }
-        }
-        return null;
-    }
-
+               int i = clientFileName.lastIndexOf('.');
+               // file1.zip
+               // file2.zip
+               return clientFileName.substring(i + 1);
+           }
+       }
+       return null;
+   }
     /**
      * Returns a short description of the servlet.
      *

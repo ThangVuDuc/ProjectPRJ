@@ -19,58 +19,39 @@ import java.util.List;
  * @author ASUS
  */
 public class ShopBean {
-
-    private int page, pageSize,shopId;
-
+    private int page,pageSize;
     public ShopBean() {
         this.page = 1;
         this.pageSize = 6;
     }
-
-    public int getPages() throws Exception {
-        int n = new ShopDAO().select().size();
-        return (int) Math.ceil((double) n / pageSize);
+    public int getPages() throws Exception{
+        int n= new ShopDAO().select().size();
+        return (int) Math.ceil((double)n/pageSize);
 //        int m=n/pageSize;
 //        return (m==0?1:m);
     }
-
-    public List<Shop> getShops() throws Exception {
-        int from = (page - 1) * pageSize + 1;
-        int to = page * pageSize;
-        String store = "{call GetShops(?,?)}";
-        Connection conn = new DBContext().getConnection();
-        CallableStatement cs = conn.prepareCall(store);
+    public List<Shop> getShops() throws Exception{
+        int from=(page-1)*pageSize+1;
+        int to=page*pageSize;
+        String store="{call GetShops(?,?)}";
+        Connection conn=new DBContext().getConnection();
+        CallableStatement cs=conn.prepareCall(store);
         cs.setInt(1, from);
         cs.setInt(2, to);
-        ResultSet rs = cs.executeQuery();
-        List<Shop> shops = new ArrayList<>();
-        while (rs.next()) {
-            int shopid = rs.getInt("shopid");
+        ResultSet rs=cs.executeQuery();
+        List<Shop> shops=new ArrayList<>();
+        while(rs.next()){
             int userid = rs.getInt("userid");
             String title = rs.getString("title");
             String description = rs.getString("description");
             boolean openOrClose = rs.getBoolean("openOrClose");
-            shops.add(new Shop(shopid, userid, title, description, openOrClose));
+            shops.add(new Shop(userid, title, description, openOrClose));
         }
         rs.close();
         conn.close();
         return shops;
     }
-
-    public Shop getShopById() throws Exception {
-        ShopDAO shopdao=new ShopDAO();
-        return shopdao.selectById(shopId);
-    }
-
-    public int getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(int shopId) {
-        this.shopId = shopId;
-    }
-
-    public int getPage() {
+     public int getPage() {
         return page;
     }
 

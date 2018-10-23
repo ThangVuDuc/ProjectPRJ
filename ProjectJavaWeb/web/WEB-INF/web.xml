@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <context-param>
-        <param-name>IMAGE_STORAGE_LOCATION</param-name>
-        <param-value>C:\Users\ASUS\Desktop\UploadImg</param-value>
-    </context-param>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>controller.authenticate.LoginServlet</servlet-class>
@@ -17,28 +13,28 @@
         <servlet-class>controller.authenticate.SigupServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CommentServlet</servlet-name>
-        <servlet-class>controller.comment.CommentServlet</servlet-class>
+        <servlet-name>InvoiceUserServlet</servlet-name>
+        <servlet-class>controller.user.InvoiceUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DisplayImages</servlet-name>
-        <servlet-class>controller.system.DisplayImages</servlet-class>
+        <servlet-name>UserAllProductServlet</servlet-name>
+        <servlet-class>controller.user.UserAllProductServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ShopServlet</servlet-name>
-        <servlet-class>controller.shop.ShopServlet</servlet-class>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>controller.admin.DashboardController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NewShopServlet</servlet-name>
-        <servlet-class>controller.shop.NewShopServlet</servlet-class>
+        <servlet-name>InvoicelineController</servlet-name>
+        <servlet-class>controller.admin.InvoicelineController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UpdateShopServlet</servlet-name>
-        <servlet-class>controller.shop.UpdateShopServlet</servlet-class>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>controller.admin.ProductController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ShopManagerServlet</servlet-name>
-        <servlet-class>controller.shop.ShopManagerServlet</servlet-class>
+        <servlet-name>UpdateUserInfoServlet</servlet-name>
+        <servlet-class>controller.user.UpdateUserInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -53,28 +49,28 @@
         <url-pattern>/SigupServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CommentServlet</servlet-name>
-        <url-pattern>/CommentServlet</url-pattern>
+        <servlet-name>InvoiceUserServlet</servlet-name>
+        <url-pattern>/InvoiceUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DisplayImages</servlet-name>
-        <url-pattern>/DisplayImages</url-pattern>
+        <servlet-name>UserAllProductServlet</servlet-name>
+        <url-pattern>/UserAllProductServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ShopServlet</servlet-name>
-        <url-pattern>/ShopServlet</url-pattern>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/Dashboard</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NewShopServlet</servlet-name>
-        <url-pattern>/NewShopServlet</url-pattern>
+        <servlet-name>InvoicelineController</servlet-name>
+        <url-pattern>/Dashboard/InvoiceLine</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UpdateShopServlet</servlet-name>
-        <url-pattern>/UpdateShopServlet</url-pattern>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/Dashboard/ProductInShop</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ShopManagerServlet</servlet-name>
-        <url-pattern>/ShopManagerServlet</url-pattern>
+        <servlet-name>UpdateUserInfoServlet</servlet-name>
+        <url-pattern>/UpdateUserInfoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

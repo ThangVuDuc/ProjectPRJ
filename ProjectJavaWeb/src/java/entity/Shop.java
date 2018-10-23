@@ -34,7 +34,7 @@ public class Shop {
         this.description = description;
         this.openOrClose = openOrClose;
     }
-    
+
     public int getShopId() {
         return shopId;
     }
@@ -69,10 +69,6 @@ public class Shop {
 
     public void setOpenOrClose(boolean openOrClose) {
         this.openOrClose = openOrClose;
-    }
-
-    public void setShopId(int shopId) {
-        this.shopId = shopId;
     }
     
     
