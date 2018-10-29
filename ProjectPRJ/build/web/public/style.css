@@ -1,0 +1,173 @@
+/*LOGO*/
+#logofpt{
+    width: 250px;
+    margin-left: 10px;
+}
+
+#logo{
+    width: 200px;
+    margin-left: 10px;
+}
+
+bodyDashboard{
+    min-width: 2000px;
+}
+
+/*USER*/
+.table-hover.user thead{
+    display: table;
+    width: 100%;
+}
+
+.table-hover.user tbody{
+    display: block;
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    word-break: break-all;
+}
+
+.table-hover.user tbody tr td {
+    width: 500px;
+    /*text-align: center;*/
+}
+
+.table-hover.user thead tr th {
+    width: 500px;
+}
+
+/*SHOP*/
+
+.table-hover.shop thead{
+    display: table;
+    width: 100%;
+}
+
+.table-hover.shop tbody{
+    display: block;
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    word-break: break-all;
+}
+
+.table-hover.shop tbody tr td {
+    width: 500px;
+}
+
+.table-hover.shop thead tr th {
+    width: 500px;
+}
+
+
+/*Product*/
+
+.table-hover.product thead{
+    display: table;
+    width: 100%;
+}
+
+.table-hover.product tbody{
+    display: block;
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    word-break: break-all;
+}
+
+.table-hover.product tbody tr td {
+    width: 500px;
+}
+
+.table-hover.product thead tr th {
+    width: 500px;
+}
+
+/*INVOICE*/
+
+.table-hover.invoice thead{
+    display: table;
+    width: 100%;
+}
+
+.table-hover.invoice tbody{
+    display: block;
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    word-break: break-all;
+}
+
+.table-hover.invoice tbody td {
+    width: 500px;
+}
+
+.table-hover.invoice thead th {
+    width: 500px;
+}
+
+/*Product in shop*/
+.bodyProductInShop{
+    min-width: 1000px;
+}
+
+
+.table-hover.productinshop thead{
+    display: table;
+    width: 100%;
+}
+
+.table-hover.productinshop tbody{
+    display: block;
+    width: 100%;
+    height: 500px;
+    /*max-height: 500px;*/
+    overflow-y: scroll;
+    overflow-x: scroll;
+    word-break: break-all;
+}
+
+.table-hover.productinshop tbody tr td {
+    width: 500px;
+    text-align: center;
+}
+
+.table-hover.productinshop thead tr th {
+    width: 500px;
+    text-align: center;
+}
+
+/*InvoiceLine*/
+
+.bodyInvoiceLine{
+    min-width: 1000px;
+}
+
+.table-hover.invoiceline thead{
+    display: table;
+    width: 100%;
+}
+
+.table-hover.invoiceline tbody{
+    display: block;
+    width: 100%;
+    height: 500px;
+    /*max-height: 500px;*/
+    overflow-y: scroll;
+    overflow-x: scroll;
+    word-break: break-all;
+}
+
+.table-hover.invoiceline tbody tr td {
+    width: 500px;
+    text-align: center;
+}
+
+.table-hover.invoiceline thead tr th {
+    width: 500px;
+    text-align: center;
+}
