@@ -1,0 +1,14 @@
+SMAP
+newjsp_jsp.java
+JSP
+*S JSP
+*F
++ 0 newjsp.jsp
+newjsp.jsp
++ 1 navbar.jsp
+components/navbar.jsp
+*L
+5,11:49
+5#1,35:60
+15#0,5:94
+*E
